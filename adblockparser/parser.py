@@ -287,7 +287,7 @@ class AdblockRules(object):
     """
 
     def __init__(self, rules, supported_options=None, skip_unsupported_rules=True,
-                 use_re2='auto', max_mem=256*1024*1024, rule_cls=AdblockRule):
+                 use_re2='auto', max_mem=256 * 1024 * 1024, rule_cls=AdblockRule):
 
         if supported_options is None:
             self.supported_options = rule_cls.BINARY_OPTIONS + ['domain']
@@ -322,8 +322,8 @@ class AdblockRules(object):
         domain_required_rules, non_domain_rules = split_data(
             advanced_rules,
             lambda r: (
-                'domain' in r.options
-                and any(r.options["domain"].values())
+                    'domain' in r.options
+                    and any(r.options["domain"].values())
             )
         )
 
